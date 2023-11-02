@@ -1,141 +1,102 @@
-<html lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="/favicon.ico" />
-    <title>my quiz</title>
-    <script defer="" src="/js/chunk-vendors.js"></script>
-    <script defer="" src="/js/app.js"></script>
-    <style type="text/css">
-      .todo__list ul[data-v-12a690df] {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      .todo__info[data-v-12a690df] {
-        color: #fff;
-      }
-      button[data-v-12a690df] {
-        cursor: pointer;
-      }
-      .todo__checked[data-v-12a690df] {
-        text-decoration: line-through;
-      }
-      .todo__list[data-v-12a690df] {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        background-color: #efa43e;
-        overflow: hidden;
-        border-radius: 15px;
-      }
-      .todo__title[data-v-12a690df] {
-        margin-right: 1rem;
-      }
-      .todo__item[data-v-12a690df] {
-        display: flex;
-        align-items: center;
-        min-height: 50px;
-        padding: 5px 20px;
-        font-size: 20px;
-        width: 95%;
-        justify-content: space-between;
-      }
-      .todo__item-inner[data-v-12a690df] {
-        display: flex;
-      }
-      .todo__item[data-v-12a690df]:not(:last-child) {
-        border-bottom: 1px solid #ebebeb;
-      }
-      .todo__summary[data-v-12a690df] {
+<html lang=""><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <title>my_quiz</title>
+    <script defer="" src="/js/chunk-vendors.js"></script><script defer="" src="/js/app.js"></script><style type="text/css">.quiz__count {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+.quiz__progressbar {
+    height: 10px;
+    background: linear-gradient(104deg, #F2EEAA 5.47%, #E3A0AC 93.97%);
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    transition: 0.9s ease all;
+}
+.quiz__items, .quiz__item, .quiz__questions {
+    padding: 0;
+    list-style-type: none;
+}
+.quiz__item {
+    transition: 0.3s ease color;
+}
+.quiz__item:hover {
+    color: #e3a0ac;
+}
+.quiz__question {
+    border: 1px solid #fff;
+    padding: 1rem;
+}
+.quiz__title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+.quiz__item:not(:last-child) {
+    margin-bottom: 0.4rem;
+}
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.3s ease-in;
+}
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+}</style><style type="text/css">
+    .quiz-result {
         font-size: 2rem;
-        text-align: end;
-      }
-      .todo__delete[data-v-12a690df] {
+    }
+    .quiz-result__title {
+        margin-bottom: 3rem;
+    }
+    .quiz-result__title-green {
+        color: #8ecacc;
+    }
+    .quiz-result__title-yellow {
+        color: #f2eeaa;
+    }
+    .quiz-result__title-red {
+        color: #ecbdcb;
+    }
+    .quiz-result__btn {
+        padding: 1rem;
+        font-weight: 700;
         background-color: #fff;
-        border-radius: 15px;
-        border: 1px solid #ccc;
-        padding: 5px 10px;
-        transition: 0.3s ease all;
-      }
-      .todo__delete[data-v-12a690df]:hover {
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-      }
-      .list-enter-active[data-v-12a690df],
-      .list-leave-active[data-v-12a690df] {
-        transition: all 0.5s ease;
-      }
-      .list-enter-from[data-v-12a690df],
-      .list-leave-to[data-v-12a690df] {
-        opacity: 0;
-        transform: translateX(30px);
-      }
-    </style>
-    <style type="text/css">
-      .todo__log[data-v-5a9d75e7] {
-        display: flex;
-      }
-    </style>
-    <style type="text/css">
-      body {
-        font-family: "Roboto", sans-serif;
-        background-color: #4f95b2;
-      }
-      .todo {
-        text-align: center;
-      }
-      .todo__container {
-        padding: 0 calc(((100vw / 12) * 0.974) * 3);
-      }
-      .todo__title-wrapper {
-        background: #fff;
-        padding: 15px;
-        border-radius: 15px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-        margin-bottom: 4rem;
-      }
-    </style>
-  </head>
-  <body>
-    <noscript>
-      <strong
-        >We're sorry but todo doesn't work properly without JavaScript enabled.
-        Please enable it to continue.</strong
-      >
-    </noscript>
-    <div id="app" data-v-app="">
-      <div class="todo">
-        <div class="todo__container">
-          <div class="todo__inner">
-            <div class="todo__title-wrapper">
-              <h1 class="todo__title">My To-Do list</h1>
-            </div>
-            <div data-v-12a690df="" class="todo__info">
-              <div data-v-12a690df="" class="todo__summary">
-                <p data-v-12a690df="">no items left</p>
-              </div>
-              <div data-v-12a690df="" class="todo__list">
-                <ul data-v-12a690df=""></ul>
-              </div>
-            </div>
-            <div data-v-5a9d75e7="" class="todo__log">
-              <textarea
-                data-v-5a9d75e7=""
-                placeholder="enter a new item"
-              ></textarea
-              ><button data-v-5a9d75e7="">Add new item</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- built files will be auto injected -->
-  </body>
-</html>
+        border: none;
+        cursor: pointer;
+        border-radius: 0.25rem;
+        transition: .3s ease all;
+    }
+    .quiz-result__btn:hover {
+        box-shadow: 3px 3px 1px #e3a0ac, -3px -3px 1px #f2eeaa;
+    }
+</style><style type="text/css">@import url(https://fonts.googleapis.com/css2?family=VT323&display=swap);</style><style type="text/css">
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #000;
+        color: #fff;
+    }
+    .quiz__container {
+        padding: 0 5rem;
+    }
+    .quiz__heading {
+        font-family: 'VT323', monospace;
+        font-size: 4rem;
+        /* text-shadow: 3px 3px 1px #ff0202, -3px -3px 1px #56ebff; */
+        text-shadow: -3px -3px 1px #f2eeaa;
+        color: #e3a0ac;
+        -webkit-text-stroke: 1px #10151C;
+        margin-bottom: 3rem;
+    }
+</style></head>
+<body>
+<noscript>
+    <strong>We're sorry but my_quiz doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+</noscript>
+<div id="app" data-v-app=""><div class="quiz"><div class="quiz__container"><div class="quiz__heading"> My first quiz. </div><div class="quiz__count">1 out of 3</div><div class="quiz__progressbar" style="width: 33.3333%;"></div><ul class="quiz__questions"><li class="quiz__question"><div class="quiz__title">How much is 2+2</div><ul class="quiz__items"><li class="quiz__item">1</li><li class="quiz__item">2</li><li class="quiz__item">3</li><li class="quiz__item">4</li></ul></li><li class="quiz__question" style="display: none;"><div class="quiz__title">What letter is missing in the word "C_t?</div><ul class="quiz__items"><li class="quiz__item">A</li><li class="quiz__item">O</li><li class="quiz__item">E</li><li class="quiz__item">I</li></ul></li><li class="quiz__question" style="display: none;"><div class="quiz__title">What planet do we live on</div><ul class="quiz__items"><li class="quiz__item">Mars</li><li class="quiz__item">Jupiter</li><li class="quiz__item">Earth</li><li class="quiz__item">Venus</li></ul></li></ul></div></div></div>
+<!-- built files will be auto injected -->
+
+
+</body></html>
